@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Marquee & Bounce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass-container {
+      width: 90%;
+      max-width: 800px;
+      height: 70px;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .glass-container p {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      line-height: 70px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      text-shadow: 0 0 5px #fff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      white-space: nowrap;
+    }
+
+    /* Marquee effect */
+    .marquee p {
+      animation: scroll-left 12s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Bounce effect */
+    .bounce p {
+      animation: bounce-horizontal 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounce-horizontal {
+      0% { transform: translateX(50%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 600px) {
+      .glass-container {
+        height: 60px;
+      }
+
+      .glass-container p {
+        font-size: 1rem;
+        line-height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass-container marquee">
+    <p>💎 Sleek Marquee Design with Glassmorphism 💎</p>
+  </div>
+
+  <div class="glass-container bounce">
+    <p>🚀 Bouncing Neon Text Inside a Frosted Panel 🚀</p>
+  </div>
+
+</body>
+</html>
