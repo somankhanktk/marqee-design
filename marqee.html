@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Marquee & Bounce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .marquee, .bounce {
+            width: 100%;
+            max-width: 800px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .marquee {
+            background: rgba(255, 76, 76, 0.9);
+            border: 4px dashed #ffcd00;
+            color: #fff;
+        }
+
+        .bounce {
+            background: rgba(30, 144, 255, 0.9);
+            border: 2px dotted #ffc0cb;
+            color: #fff;
+        }
+
+        .marquee p, .bounce p {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            line-height: 60px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .marquee p {
+            animation: scroll-left 12s linear infinite;
+        }
+
+        .bounce p {
+            animation: bounce-left-right 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes bounce-left-right {
+            0% {
+                transform: translateX(50%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .marquee, .bounce {
+                height: 50px;
+            }
+
+            .marquee p, .bounce p {
+                font-size: 1rem;
+                line-height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee">
+        <p>🌟 Welcome to the beautiful marquee animation! 🌟</p>
+    </div>
+
+    <div class="bounce">
+        <p>🎈 Smooth bouncing effect with a glowing background! 🎈</p>
+    </div>
+
+</body>
+</html>
